@@ -1,56 +1,59 @@
-# LearnMate
+# LearnMate – AI Career Coach
 
-LearnMate is an AI-assisted career platform for resume feedback and interview practice.
+LearnMate is a web app for resume feedback and interview practice.
 
-I built it to solve a problem I kept seeing around me: a lot of students want feedback on resumes and interviews, but most tools are either too generic or too expensive. This project started as a way to make that process simpler and more practical for students and early-career developers.
+I built it for students and early-career developers who want practical career help without jumping across five different tools. The goal was to make one place where a user can log in, upload resume data, get AI-assisted feedback, and work through interview-oriented flows in a cleaner way.
 
-## What it does
+## What the project does
 
-LearnMate helps users:
+LearnMate currently focuses on a few core workflows:
 
-- sign up and manage an account
-- upload or submit resume content for feedback
-- practice interview-style questions
-- access role-based features using JWT authentication
-- use an interface designed for repeat usage, not just a one-time demo
+- user sign-up and authentication
+- resume-based career feedback
+- interview preparation flows
+- role-based access for different parts of the app
+- AI-assisted response generation inside a deployable product
 
-At the moment, the project has been used by 40+ users. The goal was not to fake scale — it was to build something functional, usable, and deployable from end to end.
+The project has been used by 40+ users so far. It is still evolving, but the base product is functional and deployed.
 
 ## Tech stack
 
-- **Frontend:** React.js / Next.js
-- **Backend:** Node.js
-- **Database:** PostgreSQL (Neon)
-- **Auth:** JWT, RBAC
-- **AI integration:** OpenAI API
+- **Framework:** Next.js 15, React 18, TypeScript
+- **Styling / UI:** Tailwind CSS, Radix UI, Lucide icons
+- **Database:** Neon Postgres
+- **ORM:** Drizzle ORM
+- **Authentication:** Clerk
+- **AI integration:** AI SDK, Google models, Hugging Face Inference
+- **Background workflows:** Inngest
+- **File / document tooling:** pdf-parse, jsPDF, html2canvas, ImageKit
 - **Deployment:** Vercel
-- **CI/CD:** GitHub Actions
 
 ## Why I built it this way
 
-I wanted the project to feel like a real product, not just a college submission.
+I wanted the app to feel like a real product, not just a one-page demo.
 
-- **Next.js** made it easier to keep the frontend and backend logic in one codebase.
-- **PostgreSQL** was a better fit than a purely document-based setup because I wanted cleaner relational modeling for users, roles, and usage data.
-- **JWT + RBAC** gave me a simple but practical auth system that I could extend later.
-- **GitHub Actions + Vercel** kept deployment simple and repeatable.
+- **Next.js app router** made it easier to keep frontend and backend logic in the same codebase.
+- **TypeScript** helped keep API and UI changes safer as the project grew.
+- **Neon + Drizzle** gave me a clean relational setup without adding too much overhead.
+- **Clerk** was a practical choice for authentication because it reduced auth boilerplate and let me focus on product workflows.
+- **Inngest** gave me room to move longer-running or background tasks out of the main request cycle.
 
-## Core features
+## Main features
 
-- User authentication with JWT
-- Role-based access control
-- Resume feedback workflow
-- Interview practice module
-- Protected routes and basic session handling
-- Deployment pipeline for production updates
+- Clerk-based authentication
+- role-based access flows
+- resume upload / parsing workflow
+- AI-assisted career guidance
+- interview preparation workflow
+- deployable full-stack product with database integration
 
 ## Local setup
 
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/AnujYadav-1915/Learnmate.git
-cd Learnmate
+git clone https://github.com/AnujYadav-1915/AI_Career_Coach_Agent.git
+cd AI_Career_Coach_Agent
 npm install
 ```
 
@@ -60,11 +63,13 @@ Create an environment file:
 cp .env.example .env
 ```
 
-Add the required values in `.env`, such as:
+Add the required environment variables in `.env`. Depending on the feature set you want to run, this may include:
 
-- database connection string
-- JWT secret
-- OpenAI API key
+- Neon database connection string
+- Clerk keys
+- AI provider keys
+- Inngest keys
+- ImageKit configuration
 
 Then start the development server:
 
@@ -72,50 +77,67 @@ Then start the development server:
 npm run dev
 ```
 
+## Scripts
+
+Some useful scripts from the project:
+
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+npm run prepare-falcon-data
+npm run test-falcon
+```
+
 ## Project structure
 
-The project is organized to keep product logic separate from UI concerns as much as possible.
+The repository is split into a few main parts:
 
-- `app/` or `pages/` for routes and UI
-- API logic for backend workflows
-- auth layer for protected access
-- DB models / queries for persistence
-- reusable components for forms, layouts, and dashboards
+- `app/` – routes, pages, and server-side app logic
+- `components/` – reusable UI and feature components
+- `configs/` – app configuration and schema-related setup
+- `drizzle/` – database and migration-related files
+- `scripts/` – data preparation / model-related scripts
+- `public/` – static assets
+
+There are also a few integration and setup guides in the repo for deployment and external services.
 
 ## Challenges
 
-A few parts of this project took more time than expected:
+A few parts of the project were more involved than they looked at first:
 
-- keeping auth flows simple without making the app fragile
-- designing resume feedback flows that felt useful instead of gimmicky
-- handling AI-dependent features without making the entire product rely on perfect model output
-- keeping the app deployable while still iterating quickly
+- getting auth and protected flows to feel simple from the user side
+- handling resume/document processing cleanly
+- making AI output useful instead of generic
+- keeping the app deployable while still experimenting with features
+- managing multiple moving parts like auth, DB, AI tooling, and background jobs in one codebase
 
 ## Current limitations
 
-This project is still evolving, and a few parts are intentionally simple right now:
+A few things are still rough and need improvement:
 
-- interview scoring is basic
-- AI responses still need better structure and consistency
-- admin controls are limited
-- there is no billing or subscription system yet
-- logging and observability can be improved further
+- interview evaluation can be made more structured
+- AI output quality still depends a lot on prompt quality
+- some workflows can be simplified further
+- observability and logging are still basic
+- there is room to clean up docs and project organization
 
 ## What I want to improve next
 
-The next version will likely focus on:
+The next round of work will likely focus on:
 
-- better interview scoring and evaluation
-- cleaner analytics around user activity
+- better interview scoring and feedback structure
+- cleaner analytics and activity tracking
 - stronger validation and error handling
-- richer admin tooling
-- improved prompt engineering for more reliable feedback
+- better admin-side visibility into user flows
+- improving the consistency of AI-generated responses
 
 ## Live project
 
-- **Live:** https://anuj-kumar-ai-career-coach.vercel.app/
-- **Author:** Anuj Kumar
+- **Live:** [anuj-kumar-ai-career-coach.vercel.app](https://anuj-kumar-ai-career-coach.vercel.app/)
+- **Repository:** [AI_Career_Coach_Agent](https://github.com/AnujYadav-1915/AI_Career_Coach_Agent)
 
 ## Notes
 
-This is a side project built to learn by shipping. A lot of the value came from solving real implementation issues across auth, deployment, database design, and API integration — not just from getting a polished UI on screen.
+This is a side project built to learn by shipping. Most of the learning came from dealing with product decisions, auth, deployment, data flow, and AI integration inside one real codebase instead of building isolated demos.

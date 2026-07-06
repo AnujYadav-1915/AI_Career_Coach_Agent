@@ -1,20 +1,19 @@
 # LearnMate – AI Career Coach
 
-LearnMate is a web app for resume feedback and interview practice.
+LearnMate is an AI career coach web app designed to provide resume feedback and interview practice.
 
-I built it for students and early-career developers who want practical career help without jumping across five different tools. The goal was to make one place where a user can log in, upload resume data, get AI-assisted feedback, and work through interview-oriented flows in a cleaner way.
+I built it for students and early-career developers who want practical career help without jumping across multiple tools. The goal was to make one place where a user can log in, upload resume data, get AI-assisted feedback, and work through interview-oriented flows in a centralized way.
 
 ## What the project does
 
-LearnMate currently focuses on a few core workflows:
+LearnMate focuses on a few core workflows:
 
-- user sign-up and authentication
-- resume-based career feedback
-- interview preparation flows
-- role-based access for different parts of the app
-- AI-assisted response generation inside a deployable product
+- Clerk-based authentication with role-based access
+- Resume upload and parsing workflow
+- AI-assisted career guidance and feedback
+- Interview preparation flows
 
-The project has been used by 40+ users so far. It is still evolving, but the base product is functional and deployed.
+The project has been used by ~40+ users so far. It is still evolving, but the base product is functional and deployed.
 
 ## Tech stack
 
@@ -30,22 +29,21 @@ The project has been used by 40+ users so far. It is still evolving, but the bas
 
 ## Why I built it this way
 
-I wanted the app to feel like a real product, not just a one-page demo.
+I wanted the app to function as a complete product to explore architectural decisions and tradeoffs.
 
-- **Next.js app router** made it easier to keep frontend and backend logic in the same codebase.
+- **Next.js App Router** made it easier to keep frontend and backend logic in the same codebase.
 - **TypeScript** helped keep API and UI changes safer as the project grew.
-- **Neon + Drizzle** gave me a clean relational setup without adding too much overhead.
-- **Clerk** was a practical choice for authentication because it reduced auth boilerplate and let me focus on product workflows.
-- **Inngest** gave me room to move longer-running or background tasks out of the main request cycle.
+- **Neon + Drizzle** gave me a clean relational database setup without adding too much operational overhead.
+- **Clerk** was a practical choice for authentication because it reduced auth boilerplate and let me focus on product workflows instead of session management.
+- **Inngest** allowed me to move longer-running and background tasks out of the main request cycle.
 
 ## Main features
 
-- Clerk-based authentication
-- role-based access flows
-- resume upload / parsing workflow
+- Clerk-based authentication with role-based access flows
+- Resume upload and parsing workflow
 - AI-assisted career guidance
-- interview preparation workflow
-- deployable full-stack product with database integration
+- Interview preparation workflow
+- Deployable full-stack product with database integration
 
 ## Local setup
 
@@ -63,13 +61,13 @@ Create an environment file:
 cp .env.example .env
 ```
 
-Add the required environment variables in `.env`. Depending on the feature set you want to run, this may include:
+Add the required environment variables in `.env`. Based on the `.env.example`, you will need:
 
-- Neon database connection string
-- Clerk keys
-- AI provider keys
-- Inngest keys
-- ImageKit configuration
+- `NEXT_PUBLIC_NEON_DB_CONNECTION_STRING`
+- Clerk publishable and secret keys
+- Clerk fallback redirect URLs
+
+Depending on the feature set you want to test, you may also need keys for AI providers, Inngest, and ImageKit.
 
 Then start the development server:
 
@@ -82,7 +80,6 @@ npm run dev
 Some useful scripts from the project:
 
 ```bash
-npm run dev
 npm run build
 npm run start
 npm run lint
@@ -92,46 +89,52 @@ npm run test-falcon
 
 ## Project structure
 
-The repository is split into a few main parts:
+The repository is organized as follows:
 
 - `app/` – routes, pages, and server-side app logic
 - `components/` – reusable UI and feature components
 - `configs/` – app configuration and schema-related setup
 - `drizzle/` – database and migration-related files
-- `scripts/` – data preparation / model-related scripts
+- `scripts/` – data preparation and model-related scripts
 - `public/` – static assets
 
-There are also a few integration and setup guides in the repo for deployment and external services.
+## Additional docs
+
+Additional integration and setup documentation can be found in the `/docs` folder:
+
+- `DEPLOYMENT_GUIDE.md`
+- `FALCON_INTEGRATION.md`
+- `FALCON_SETUP_GUIDE.md`
+- `INNGEST_CLOUD_SETUP.md`
+- `setup-services.md`
 
 ## Challenges
 
-A few parts of the project were more involved than they looked at first:
+A few parts of the project presented interesting technical challenges:
 
-- getting auth and protected flows to feel simple from the user side
-- handling resume/document processing cleanly
-- making AI output useful instead of generic
-- keeping the app deployable while still experimenting with features
-- managing multiple moving parts like auth, DB, AI tooling, and background jobs in one codebase
+- Handling resume and document processing cleanly in a serverless environment.
+- Structuring prompts and context so that AI output remains useful instead of generic.
+- Keeping the app deployable while continuing to experiment with features.
+- Managing multiple moving parts like auth, database, AI tooling, and background jobs in one codebase without excessive coupling.
 
 ## Current limitations
 
 A few things are still rough and need improvement:
 
-- interview evaluation can be made more structured
-- AI output quality still depends a lot on prompt quality
-- some workflows can be simplified further
-- observability and logging are still basic
-- there is room to clean up docs and project organization
+- Interview evaluation can be made more structured.
+- AI output quality still depends heavily on prompt quality.
+- Some workflows can be simplified further.
+- Observability and logging are still basic.
 
 ## What I want to improve next
 
 The next round of work will likely focus on:
 
-- better interview scoring and feedback structure
-- cleaner analytics and activity tracking
-- stronger validation and error handling
-- better admin-side visibility into user flows
-- improving the consistency of AI-generated responses
+- Better interview scoring and feedback structure.
+- Cleaner analytics and activity tracking.
+- Stronger validation and error handling across API routes.
+- Better admin-side visibility into user flows.
+- Improving the consistency of AI-generated responses.
 
 ## Live project
 

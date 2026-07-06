@@ -112,29 +112,29 @@ Additional integration and setup documentation can be found in the `/docs` folde
 
 A few parts of the project presented interesting technical challenges:
 
-- Handling resume and document processing cleanly in a serverless environment.
-- Structuring prompts and context so that AI output remains useful instead of generic.
-- Keeping the app deployable while continuing to experiment with features.
-- Managing multiple moving parts like auth, database, AI tooling, and background jobs in one codebase without excessive coupling.
+- Handling resume and document processing cleanly in a serverless environment
+- Structuring prompts and context so that AI output remains useful instead of generic
+- Keeping the app deployable while continuing to experiment with features
+- Managing multiple moving parts like auth, database, AI tooling, and background jobs in one codebase without excessive coupling
 
 ## Current limitations
 
 A few things are still rough and need improvement:
 
-- Interview evaluation can be made more structured.
-- AI output quality still depends heavily on prompt quality.
-- Some workflows can be simplified further.
-- Observability and logging are still basic.
+- Interview evaluation can be made more structured
+- AI output quality still depends heavily on prompt quality
+- Some workflows can be simplified further
+- Observability and logging are still basic
 
 ## What I want to improve next
 
 The next round of work will likely focus on:
 
-- Better interview scoring and feedback structure.
-- Cleaner analytics and activity tracking.
-- Stronger validation and error handling across API routes.
-- Better admin-side visibility into user flows.
-- Improving the consistency of AI-generated responses.
+- Better interview scoring and feedback structure
+- Cleaner analytics and activity tracking
+- Stronger validation and error handling across API routes
+- Better admin-side visibility into user flows
+- Improving the consistency of AI-generated responses
 
 ## Live project
 

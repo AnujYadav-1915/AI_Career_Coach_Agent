@@ -24,10 +24,12 @@ export async function POST(req: NextRequest) {
             .where(eq(usersTable.email, email));
 
         if (existingUsers.length > 0) {
+            console.log(`[User API] Returning existing user for email: ${email}`);
             return NextResponse.json(existingUsers[0]);
         }
 
         // Insert new user
+        console.log(`[User API] Inserting new user for email: ${email}`);
         const insertedUsers = await db
             .insert(usersTable)
             .values({

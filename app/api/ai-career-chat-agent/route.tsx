@@ -136,10 +136,11 @@ export async function POST(req: any) {
         console.log("Formatted response:", formattedResponse);
         return NextResponse.json(formattedResponse);
         
-    } catch (error) {
-        console.error("API Error:", error);
+    } catch (error: any) {
+        console.error("API Error in AI Career Chat Agent:", error?.message || error);
         return NextResponse.json({ 
-            error: "Internal server error" 
+            error: "Internal server error",
+            details: process.env.NODE_ENV === "development" ? error?.message : undefined
         }, { status: 500 });
     }
 }

@@ -227,61 +227,7 @@ GUIDELINES:
             return NextResponse.json(parsedResponse);
         } catch (parseError) {
             console.error("Error parsing interview response:", parseError);
-            // Fallback response
-            const fallbackQuestion = interviewType === 'technical' 
-                ? "Can you walk me through how you would approach solving a complex technical problem?"
-                : "Tell me about a time when you had to work with a difficult team member. How did you handle it?";
-            
-            const fallbackResponse = {
-                interview_phase: isFeedback ? "feedback" : "conversation",
-                ai_message: isFeedback ? "" : (conversationMode ? 
-                    (interviewType === 'dsa' ? 
-                        `Hello! Welcome to your DSA interview for the ${domain} position. I'm excited to see how you approach algorithmic problems. Let's start with a problem - can you solve the "Two Sum" problem?` :
-                        `Hello! Welcome to your ${interviewTypeLabel} interview for the ${domain} position. I'm excited to learn more about you. Could you start by telling me a bit about yourself and your background?`
-                    ) :
-                    `Great! Let's start with this question. ${fallbackQuestion}`
-                ),
-                conversation_count: 1,
-                domain: domain,
-                interview_type: interviewType,
-                dsa_question: interviewType === 'dsa' && !isFeedback ? {
-                    title: "Two Sum",
-                    description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
-                    difficulty: "easy",
-                    examples: [
-                        "Input: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0, 1].",
-                        "Input: nums = [3,2,4], target = 6\nOutput: [1,2]",
-                        "Input: nums = [3,3], target = 6\nOutput: [0,1]"
-                    ],
-                    constraints: [
-                        "2 <= nums.length <= 10^4",
-                        "-10^9 <= nums[i] <= 10^9",
-                        "-10^9 <= target <= 10^9",
-                        "Only one valid answer exists."
-                    ],
-                    test_cases: [
-                        { input: "[2,7,11,15], 9", output: "[0,1]", explanation: "nums[0] + nums[1] = 2 + 7 = 9" },
-                        { input: "[3,2,4], 6", output: "[1,2]", explanation: "nums[1] + nums[2] = 2 + 4 = 6" }
-                    ]
-                } : undefined,
-                feedback: isFeedback ? {
-                    overall_score: 75,
-                    strengths: ["Good communication", "Relevant experience"],
-                    areas_for_improvement: ["Could provide more specific examples"],
-                    detailed_analysis: "The response shows good understanding but could be more detailed.",
-                    recommendations: ["Provide specific examples", "Quantify achievements"],
-                    next_steps: "Practice with more specific examples and metrics.",
-                    code_analysis: interviewType === 'dsa' ? {
-                        correctness: 80,
-                        efficiency: 75,
-                        readability: 85,
-                        time_complexity: "O(n)",
-                        space_complexity: "O(n)",
-                        suggestions: ["Consider edge cases", "Add comments for clarity"]
-                    } : undefined
-                } : null
-            };
-            return NextResponse.json(fallbackResponse);
+            return NextResponse.json({ error: "Failed to generate AI evaluation. Please try again." }, { status: 500 });
         }
         
     } catch (error) {

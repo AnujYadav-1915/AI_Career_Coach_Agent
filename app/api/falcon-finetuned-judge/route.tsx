@@ -130,27 +130,7 @@ Provide your analysis now:`;
       }
     } catch (parseError) {
       console.error('Failed to parse Falcon response:', parseError);
-      // Fallback response
-      judgingResult = {
-        overallAssessment: "Response analysis completed. The candidate provided a response that shows engagement with the question.",
-        detailedAnalysis: {
-          strengths: ["Engaged with the question", "Provided a response"],
-          weaknesses: ["Response could be more detailed", "Consider providing more specific examples"],
-          suggestions: ["Elaborate more on your experience", "Provide concrete examples"],
-          specificFeedback: "The response shows understanding but could benefit from more detail and specific examples.",
-          improvementAreas: ["Detail and specificity", "Concrete examples"],
-          standoutPoints: ["Willingness to engage", "Basic understanding demonstrated"]
-        },
-        contextualInsights: {
-          progressTrend: "Early stage assessment - more data needed for trend analysis",
-          consistencyScore: 70,
-          knowledgeGaps: ["Need more specific examples", "Could demonstrate deeper understanding"],
-          strongAreas: ["Communication", "Engagement"]
-        },
-        nextQuestionSuggestion: "Can you provide a specific example of how you've applied this concept in a real project?",
-        confidence: 75,
-        modelVersion: "falcon-7b-instruct-fallback"
-      };
+      throw new Error('Failed to parse AI response as JSON');
     }
 
     console.log('✅ Fine-tuned Falcon judging completed successfully');
@@ -164,35 +144,6 @@ Provide your analysis now:`;
 
   } catch (error) {
     console.error('Hugging Face API error:', error);
-    
-    // Fallback response when API fails
-    const fallbackResponse: FalconJudgingResponse = {
-      overallAssessment: "Response analysis completed using fallback method. The candidate provided a response that shows engagement with the question.",
-      detailedAnalysis: {
-        strengths: ["Engaged with the question", "Provided a response"],
-        weaknesses: ["Response could be more detailed", "Consider providing more specific examples"],
-        suggestions: ["Elaborate more on your experience", "Provide concrete examples"],
-        specificFeedback: "The response shows understanding but could benefit from more detail and specific examples.",
-        improvementAreas: ["Detail and specificity", "Concrete examples"],
-        standoutPoints: ["Willingness to engage", "Basic understanding demonstrated"]
-      },
-      contextualInsights: {
-        progressTrend: "Early stage assessment - more data needed for trend analysis",
-        consistencyScore: 70,
-        knowledgeGaps: ["Need more specific examples", "Could demonstrate deeper understanding"],
-        strongAreas: ["Communication", "Engagement"]
-      },
-      nextQuestionSuggestion: "Can you provide a specific example of how you've applied this concept in a real project?",
-      confidence: 75,
-      modelVersion: "falcon-7b-instruct-fallback"
-    };
-
-    return NextResponse.json({
-      success: true,
-      data: fallbackResponse,
-      model: 'falcon-7b-instruct-fallback',
-      timestamp: new Date().toISOString(),
-      warning: 'Using fallback response due to API error'
-    });
+    return NextResponse.json({ success: false, error: 'Failed to generate AI evaluation. Please try again.' }, { status: 500 });
   }
 }

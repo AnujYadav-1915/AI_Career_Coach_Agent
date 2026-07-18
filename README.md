@@ -49,17 +49,13 @@ I wanted the app to function as a complete product to explore architectural deci
 
 Clone the repository and install dependencies:
 
-```bash
-git clone https://github.com/AnujYadav-1915/AI_Career_Coach_Agent.git
-cd AI_Career_Coach_Agent
-npm install
-```
+`git clone https://github.com/AnujYadav-1915/AI_Career_Coach_Agent.git`
+`cd AI_Career_Coach_Agent`
+`npm install`
 
 Create an environment file:
 
-```bash
-cp .env.example .env
-```
+`cp .env.example .env`
 
 Add the required environment variables in `.env`. Based on the `.env.example`, you will need:
 
@@ -71,21 +67,17 @@ Depending on the feature set you want to test, you may also need keys for AI pro
 
 Then start the development server:
 
-```bash
-npm run dev
-```
+`npm run dev`
 
 ## Scripts
 
 Some useful scripts from the project:
 
-```bash
-npm run build
-npm run start
-npm run lint
-npm run prepare-falcon-data
-npm run test-falcon
-```
+`npm run build`
+`npm run start`
+`npm run lint`
+`npm run prepare-falcon-data`
+`npm run test-falcon`
 
 ## Project structure
 

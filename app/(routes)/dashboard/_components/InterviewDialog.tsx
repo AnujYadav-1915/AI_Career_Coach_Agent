@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import { toast } from 'sonner';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -22,12 +23,12 @@ const InterviewDialog: React.FC<InterviewDialogProps> = ({ openDialog, setOpenDi
 
     const handleStartInterview = async () => {
         if (!domain.trim()) {
-            alert('Please enter a domain/role for the interview');
+            toast.error('Please enter a domain/role for the interview');
             return;
         }
 
         if (!user?.emailAddresses?.[0]?.emailAddress) {
-            alert('User email not found');
+            toast.error('User email not found');
             return;
         }
 
@@ -54,11 +55,11 @@ const InterviewDialog: React.FC<InterviewDialogProps> = ({ openDialog, setOpenDi
                 router.push(`/ai-tools/ai-interview-agent/${interviewId}?domain=${encodeURIComponent(domain)}&duration=${interviewDuration}&type=${interviewType}`);
             } else {
                 console.error('Failed to create interview history');
-                alert('Failed to start interview. Please try again.');
+                toast.error('Failed to start interview. Please try again.');
             }
         } catch (error) {
             console.error('Error starting interview:', error);
-            alert('Error starting interview. Please try again.');
+            toast.error('Error starting interview. Please try again.');
         } finally {
             setLoading(false);
         }

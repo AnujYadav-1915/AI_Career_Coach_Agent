@@ -12,6 +12,7 @@ import { ArrowLeft, Mic, MicOff, Send, CheckCircle, AlertCircle, Volume2, Volume
 import Link from 'next/link';
 import { generateInterviewPDF, downloadPDF, InterviewReportData } from '@/lib/pdf-generator';
 import { useTalkingAvatar } from '@/lib/talking-avatar';
+import { toast } from 'sonner';
 
 interface InterviewData {
     interview_phase: 'conversation' | 'feedback';
@@ -231,7 +232,7 @@ const InterviewPage: React.FC = () => {
     const startRecording = () => {
         // Check if speech recognition is supported
         if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-            alert('Speech recognition is not supported in this browser. Please use Chrome, Edge, or Safari.');
+            toast.error('Speech recognition is not supported in this browser. Please use Chrome, Edge, or Safari.');
             return;
         }
 
@@ -244,7 +245,7 @@ const InterviewPage: React.FC = () => {
                 })
                 .catch((error) => {
                     console.error('Microphone permission denied:', error);
-                    alert('Microphone permission is required for voice recording. Please allow microphone access and try again.');
+                    toast.error('Microphone permission is required for voice recording. Please allow microphone access and try again.');
                 });
         } else {
             // Fallback for older browsers
@@ -322,7 +323,7 @@ const InterviewPage: React.FC = () => {
                 default:
                     errorMessage += `Error: ${event.error}. Please try again.`;
             }
-            alert(errorMessage);
+            toast.error(errorMessage);
         };
         
         recognitionInstance.onend = () => {
@@ -338,7 +339,7 @@ const InterviewPage: React.FC = () => {
         } catch (error) {
             console.error('Failed to start speech recognition:', error);
             setIsRecording(false);
-            alert('Failed to start speech recognition. Please try again.');
+            toast.error('Failed to start speech recognition. Please try again.');
         }
     };
 
@@ -408,7 +409,7 @@ const InterviewPage: React.FC = () => {
 
     const startInterview = async () => {
         if (!user?.emailAddresses?.[0]?.emailAddress) {
-            alert('User email not found');
+            toast.error('User email not found');
             return;
         }
 
@@ -443,11 +444,11 @@ const InterviewPage: React.FC = () => {
                 }
             } else {
                 console.error('Failed to start interview');
-                alert('Failed to start interview. Please try again.');
+                toast.error('Failed to start interview. Please try again.');
             }
         } catch (error) {
             console.error('Error starting interview:', error);
-            alert('Error starting interview. Please try again.');
+            toast.error('Error starting interview. Please try again.');
         } finally {
             setLoading(false);
         }
@@ -455,12 +456,12 @@ const InterviewPage: React.FC = () => {
 
     const submitResponse = async () => {
         if (!userResponse.trim() && !codeResponse.trim()) {
-            alert('Please provide a response before submitting');
+            toast.error('Please provide a response before submitting');
             return;
         }
 
         if (!user?.emailAddresses?.[0]?.emailAddress) {
-            alert('User email not found');
+            toast.error('User email not found');
             return;
         }
 
@@ -512,11 +513,11 @@ const InterviewPage: React.FC = () => {
                 }
             } else {
                 console.error('Failed to submit response');
-                alert('Failed to submit response. Please try again.');
+                toast.error('Failed to submit response. Please try again.');
             }
         } catch (error) {
             console.error('Error submitting response:', error);
-            alert('Error submitting response. Please try again.');
+            toast.error('Error submitting response. Please try again.');
         } finally {
             setLoading(false);
         }
@@ -598,7 +599,7 @@ const InterviewPage: React.FC = () => {
 
     const downloadReport = async () => {
         if (!finalReport) {
-            alert('No report data available. Please complete the interview first.');
+            toast.error('No report data available. Please complete the interview first.');
             return;
         }
 
@@ -634,7 +635,7 @@ const InterviewPage: React.FC = () => {
             
         } catch (error) {
             console.error('❌ Error generating PDF:', error);
-            alert('Failed to generate PDF report. Please try again or contact support if the issue persists.');
+            toast.error('Failed to generate PDF report. Please try again or contact support if the issue persists.');
         }
     };
 

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react'
+import { toast } from 'sonner';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
@@ -144,7 +145,7 @@ function History() {
                                                 e.preventDefault();
                                                 e.stopPropagation();
                                                 // Show code analysis modal or navigate to detailed view
-                                                alert(`Code Analysis:\nCorrectness: ${history.codeAnalysis.correctness}/100\nEfficiency: ${history.codeAnalysis.efficiency}/100\nTime Complexity: ${history.codeAnalysis.time_complexity}`);
+                                                toast.success(`Code Analysis:\nCorrectness: ${history.codeAnalysis.correctness}/100\nEfficiency: ${history.codeAnalysis.efficiency}/100\nTime Complexity: ${history.codeAnalysis.time_complexity}`);
                                             }}
                                             className="flex items-center gap-1"
                                         >

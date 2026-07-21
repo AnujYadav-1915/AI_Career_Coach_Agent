@@ -7,7 +7,7 @@ import {
   ClerkProvider,
 } from '@/lib/clerk-client'
 import Provider from "./provider";
-
+import { Toaster } from 'sonner';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +37,7 @@ export default function RootLayout({
         >
           <Provider>
             {children}
-
+            <Toaster position="bottom-right" richColors />
           </Provider>
         </body>
       </html>

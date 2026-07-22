@@ -3,11 +3,12 @@ import React from 'react'
 
 function WelcomeBanner() {
     return(
-        <div className='p-5 bg-gradient-to-r from-[#BE575F] via-[#A338E3] to-[#AC76D6] rounded-xl'>
-            <h2 className='font-bold text-2xl text-white'> AI Career Coach Agent</h2>
-            <p className='text-white'>Smarter career decisions start here — get tailored advice, real-time market insights, and a roadmap built just for you with the power of AI.</p>
-            <Button variant={'outline'} className='mt-3'>
-                Let's Get Started </Button>
+        <div className='p-6 bg-slate-900 rounded-xl border border-slate-800 shadow-sm'>
+            <h2 className='font-bold text-2xl text-white mb-2'> AI Career Coach Agent</h2>
+            <p className='text-slate-300 leading-relaxed'>Smarter career decisions start here — get tailored advice, real-time market insights, and a roadmap built just for you with the power of AI.</p>
+            <Button variant={'secondary'} className='mt-4 bg-white text-slate-900 hover:bg-slate-100'>
+                Let's Get Started 
+            </Button>
         </div>
     )
 }

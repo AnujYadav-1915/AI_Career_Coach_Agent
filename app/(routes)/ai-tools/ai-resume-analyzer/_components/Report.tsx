@@ -184,7 +184,7 @@ function Report({ aiReport }: any) {
       </div>
 
       {/* Resume Score */}
-      <div className="bg-gradient-to-r from-[#BE575F] via-[#A338E3] to-[#AC76D6] rounded-lg shadow-md p-6 mb-6 border border-blue-200 transform hover:scale-[1.01] transition-transform duration-300 ease-in-out">
+      <div className="bg-slate-900 rounded-xl p-6 mb-6 border border-slate-800 shadow-sm">
         <h3 className="text-xl font-bold text-white mb-4 flex items-center">
           <i className="fas fa-star text-yellow-500 mr-2"></i> Overall Score
         </h3>

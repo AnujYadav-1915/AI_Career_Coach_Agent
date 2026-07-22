@@ -63,7 +63,7 @@ export default function LearnMateHomepage() {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
               <Image src={'/logo.svg'} alt="logo" width={40} height={40} />
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold text-slate-900">
                 LearnMate
               </span>
             </div>
@@ -82,7 +82,7 @@ export default function LearnMateHomepage() {
                   </SignInButton>
                   
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl">
+                    <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
                       Get Started
                     </button>
                   </SignInButton>
@@ -90,7 +90,7 @@ export default function LearnMateHomepage() {
               ) : (
                 <>
                   <Link href="/dashboard">
-                    <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl">
+                    <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
                       Dashboard
                     </button>
                   </Link>
@@ -121,7 +121,7 @@ export default function LearnMateHomepage() {
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               Your AI-Powered
-              <span className="block bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+              <span className="block text-blue-600">
                 Career Coach
               </span>
             </h1>
@@ -135,7 +135,7 @@ export default function LearnMateHomepage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               {isSignedIn ? (
                 <Link href="/dashboard">
-                  <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2">
+                  <button className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors duration-200 flex items-center gap-2">
                     Go to Dashboard
                     <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m9 18 6-6-6-6" />
@@ -144,7 +144,7 @@ export default function LearnMateHomepage() {
                 </Link>
               ) : (
                 <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                  <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2">
+                  <button className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors duration-200 flex items-center gap-2">
                     Start Practicing
                     <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m9 18 6-6-6-6" />
@@ -231,7 +231,7 @@ export default function LearnMateHomepage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+      <section className="py-20 bg-slate-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to start practicing?
@@ -260,7 +260,7 @@ export default function LearnMateHomepage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Brain className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold">LearnMate</span>

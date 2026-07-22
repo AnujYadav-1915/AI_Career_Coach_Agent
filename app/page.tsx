@@ -55,21 +55,6 @@ export default function LearnMateHomepage() {
     }
   ];
 
-  const quotes = [
-    {
-      text: "The future belongs to those who understand that artificial intelligence is not about replacing humans, but about augmenting human intelligence.",
-      author: "Satya Nadella"
-    },
-    {
-      text: "AI is not about the technology, it's about thinking differently about how we can use technology to transform our lives.",
-      author: "Fei-Fei Li"
-    },
-    {
-      text: "Success in creating AI would be the biggest event in human history. Unfortunately, it might also be the last.",
-      author: "Stephen Hawking"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
       {/* Header */}
@@ -126,7 +111,7 @@ export default function LearnMateHomepage() {
             <Link href="https://github.com/AnujYadav-1915" target="_blank" rel="noopener noreferrer">
               <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-8 hover:bg-blue-200 transition-colors cursor-pointer">
                 <Star className="w-4 h-4 mr-2" />
-                Making the world better with AI
+                Open Source Career Coach
                 <svg className="flex-shrink-0 size-4 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="m9 18 6-6-6-6" />
                 </svg>
@@ -143,7 +128,7 @@ export default function LearnMateHomepage() {
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Revolutionize your content creation with our AI-powered app, delivering engaging and high-quality apps in seconds.
+              Practice interviews and get instant resume feedback with your personal AI career coach.
             </p>
 
             {/* CTA Buttons */}
@@ -160,7 +145,7 @@ export default function LearnMateHomepage() {
               ) : (
                 <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
                   <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2">
-                    Start Your Journey
+                    Start Practicing
                     <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m9 18 6-6-6-6" />
                     </svg>
@@ -245,69 +230,14 @@ export default function LearnMateHomepage() {
         </div>
       </section>
 
-      {/* Quotes Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Wisdom from Visionaries
-            </h2>
-            <p className="text-xl text-gray-600">
-              Insights from leaders who are shaping the future of AI
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {quotes.map((quote, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100"
-              >
-                <div className="text-blue-600 mb-4">
-                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                  </svg>
-                </div>
-                <blockquote className="text-gray-700 text-lg mb-6 italic leading-relaxed">
-                  "{quote.text}"
-                </blockquote>
-                <div className="text-blue-600 font-semibold">
-                  — {quote.author}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="p-8">
-              <div className="text-5xl font-bold text-blue-600 mb-2">25+</div>
-              <div className="text-xl text-gray-600">Templates Available</div>
-            </div>
-            <div className="p-8">
-              <div className="text-5xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-xl text-gray-600">Available Support</div>
-            </div>
-            <div className="p-8">
-              <div className="text-5xl font-bold text-blue-600 mb-2">Free</div>
-              <div className="text-xl text-gray-600">To Use</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Transform Your Career?
+            Ready to start practicing?
           </h2>
           <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-            Join thousands of professionals who are already leveraging AI to accelerate their career growth.
+            Improve your interview skills and resume with instant AI feedback.
           </p>
           {isSignedIn ? (
             <Link href="/dashboard">

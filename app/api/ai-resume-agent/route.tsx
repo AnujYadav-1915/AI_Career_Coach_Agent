@@ -17,48 +17,29 @@
 //     const base64 = Buffer.from(arrayBuffer).toString('base64');
 
 //     const resultId = await inngest.send({
-//         name: 'AiResumeAgent',
-//         data: {
-//             recordId: recordId,
 //             base64ResumeFile : base64,
 //             pdfText: docs[0]?.pageContent, // raw pdf text
 //             aiAgentType : '/ai-tools/ai-resume-analyzer',
 //             userEmail : user?.primaryEmailAddress?.emailAddress
-//         },
-//     });
 
 //     const runId = resultId?.ids[0];
 
-//     let runStatus;
 
-//     while(true){
 //         runStatus = await getRuns(runId);
-//         console.log(runStatus?.data);
 //         if(runStatus?.data[0]?.status === 'Completed')
-//             break;
 //         await new Promise(resolve => setTimeout(resolve, 500)); // Wait for 1 second before checking again
-//     }
 
-//     //console.log(NextResponse.json(runStatus.data?.[0].output[0]))
 //     // return NextResponse.json(runStatus.data?.[0].output?.output[0])
 //     const finalOutput = runStatus.data?.[0]?.output?.[0];
 //     if (!finalOutput) {
 //     return NextResponse.json({ error: "No output received" }, { status: 500 });
-//     }
-//     return NextResponse.json(finalOutput);
-// }
 
 
 // export async function getRuns(runId: string) {
 //     const result = await axios.get(`${process.env.INNGEST_SERVER_HOST}/v1/events/${runId}/runs`, {
-//     headers: {
 //         'Authorization': `Bearer ${process.env.INNGEST_SIGNING_KEY}`
 //         // 'Content-Type': 'application/json',
-//     },
-// });
 
-//     return result.data;
-// }
 
 import { NextRequest, NextResponse } from "next/server";
 import { WebPDFLoader } from "@langchain/community/document_loaders/web/pdf";

@@ -38,7 +38,7 @@ function AiResumeAnalyzer() {
             src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0`}
             width="100%"
             height="100%"
-            className='rounded-md shadow-md border min-h-[80vh]'
+            className='rounded-md shadow-sm border min-h-[80vh]'
             style={{ border: 'none' }}
           />
         ) : (

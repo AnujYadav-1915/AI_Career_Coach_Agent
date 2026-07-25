@@ -67,8 +67,6 @@ export function AppSidebar() {
                                     <item.icon className='h-5 w-5' />
                                     <span>{item.title}</span>
                                 </a>
-                                //     </SidebarMenuButton>
-                                // </SidebarMenuItem>
                             ))}
                         </SidebarMenu>
                     </SidebarGroupContent>

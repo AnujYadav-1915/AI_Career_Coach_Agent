@@ -1,12 +1,5 @@
 // import React, { useState } from 'react'
 // import { File, Loader2Icon, Sparkles } from 'lucide-react';
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogDescription,
-//   DialogFooter,
-//   DialogHeader,
-//   DialogTitle,
 // } from "@/components/ui/dialog"
 // import { Button } from '@/components/ui/button';
 // import { v4 as uuidv4 } from 'uuid';
@@ -22,61 +15,29 @@
 //         const file = event.target.files?.[0];
 //         if (file) {
 //             // Handle the file upload logic here
-//             console.log(file.name);
 //             // You can also close the dialog after file selection
-//             setFile(file);
-//         }
-//     };
 
 //     const onUploadAndAnalyze = async() => {
-//         setLoading(true);
 //         const recordId = uuidv4();
 //         const formData = new FormData();
-//         formData.append('recordId', recordId);
-//         formData.append('resumeFile', file);
-//        // formData.append('aiAgentType','/ai-tools/ai-resume-analyzer')
 //         // send the form data to your API endpoint
 
-//         console.log('logginggggggggggggggggggggg')
 //         const result = await axios.post('/api/ai-resume-agent',formData);
 //         console.log('kch return hua kyaa ????????')
-//         console.log(result.data)
-//         setLoading(false);
-//         router.push(`/ai-tools/ai-resume-analyzer/${recordId}`);
-//         setOpenResumeDialog(false); 
-//     }
 
 
-//     return (
 //         <Dialog open={openResumeUpload} onOpenChange={setOpenResumeDialog}>
-//             <DialogContent>
-//                 <DialogHeader>
 //                     <DialogTitle>Upload resume PDF file</DialogTitle>
-//                     <DialogDescription>
-//                         <div>
 //                             <label htmlFor='resumeUpload' className='flex items-center flex-col justify-center p-7 border border-dashed rounded-xl hover:bg-slate-100 cursor-pointer'>
 //                                 <File className='h-10 w-10' />
-//                                 {file ?
-//                                     <h2 className='mt-3 text-blue-600'>{file?.name}</h2>:
+//                                     <h2 className='mt-3 text-black'>{file?.name}</h2>:
 //                                 <h2 className='mt-3'>Click here to upload PDF file</h2>}
-//                             </label>
 //                             <input type='file' id='resumeUpload' className='hidden' accept='.pdf'
-//                             onChange={onFileChange} />
-//                         </div>
-//                     </DialogDescription>
-//                 </DialogHeader>
 
-//                 <DialogFooter>
 //                     <Button variant='outline' onClick={() => setOpenResumeDialog(false)}>Cancel</Button>
 //                     <Button disabled = {!file || loading} onClick={onUploadAndAnalyze}>
 //                         {loading ? <Loader2Icon className='animate-spin' /> :<Sparkles className='mr-2 h-4 w-4' />}
 //                         Upload & Analyze
-//                     </Button>
-//                 </DialogFooter>
-//             </DialogContent>
-//         </Dialog>
-//     );
-// }
 
 // export default ResumeUploadDialog;
 
@@ -189,7 +150,7 @@ function ResumeUploadDialog({ openResumeUpload, setOpenResumeDialog }: any) {
                                 <File className='h-10 w-10' />
                                 {file ? (
                                     <div className='mt-3 text-center'>
-                                        <h2 className='text-blue-600 font-medium'>{file.name}</h2>
+                                        <h2 className='text-black font-medium'>{file.name}</h2>
                                         <p className='text-sm text-gray-500 mt-1'>
                                             {(file.size / 1024 / 1024).toFixed(2)} MB
                                         </p>

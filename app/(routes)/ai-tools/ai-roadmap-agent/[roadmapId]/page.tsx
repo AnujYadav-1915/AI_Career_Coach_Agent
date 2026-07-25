@@ -28,7 +28,7 @@ function RoadmapGeneratorAgent(){
             <div className='border rounded-xl p-5'>
                 <h2 className='font-bold text-2xl'>{roadmapDetail?.roadmapTitle}</h2>
                 <p className='mt-3 text-gray-500'><strong>Description</strong>:<br></br> {roadmapDetail?.description}</p>
-                <h2 className='mt-5 font-medium text-blue-600'>Duration : {roadmapDetail?.duration} </h2>
+                <h2 className='mt-5 font-medium text-black'>Duration : {roadmapDetail?.duration} </h2>
 
                 <Button onClick = {()=>setOpenRoadmapDialog(true)}className='mt-5 w-full'> + Create Another Roadmap</Button>
             </div>

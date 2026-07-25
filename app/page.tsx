@@ -29,36 +29,36 @@ export default function LearnMateHomepage() {
 
   const features = [
     {
-      icon: <MessageCircle className="w-8 h-8 text-blue-600" />,
+      icon: <MessageCircle className="w-8 h-8 text-black" />,
       title: "Q&A Chatbot",
       description: "Get instant answers to your career questions with our intelligent AI assistant",
-      color: "bg-blue-50 hover:bg-blue-100"
+      color: "bg-gray-50 hover:bg-gray-100 border border-gray-200"
     },
     {
-      icon: <FileText className="w-8 h-8 text-blue-600" />,
+      icon: <FileText className="w-8 h-8 text-black" />,
       title: "AI Resume Analyzer",
       description: "Detailed analysis with score and personalized improvement recommendations",
-      color: "bg-blue-50 hover:bg-blue-100"
+      color: "bg-gray-50 hover:bg-gray-100 border border-gray-200"
     },
     {
-      icon: <Map className="w-8 h-8 text-blue-600" />,
+      icon: <Map className="w-8 h-8 text-black" />,
       title: "Roadmap Generator",
       description: "Create personalized learning paths tailored to your career goals",
-      color: "bg-blue-50 hover:bg-blue-100"
+      color: "bg-gray-50 hover:bg-gray-100 border border-gray-200"
     },
     {
-      icon: <Users className="w-8 h-8 text-blue-600" />,
+      icon: <Users className="w-8 h-8 text-black" />,
       title: "Mock Interview Prep",
       description: "Practice with AI-powered interviews to boost your confidence",
-      color: "bg-blue-50 hover:bg-blue-100",
+      color: "bg-gray-50 hover:bg-gray-100 border border-gray-200",
       comingSoon: true
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-blue-100 sticky top-0 z-50">
+      <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
@@ -73,7 +73,7 @@ export default function LearnMateHomepage() {
               {!isSignedIn ? (
                 <>
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <button className="flex items-center gap-x-2 px-4 py-2 text-blue-600 hover:text-blue-800 font-medium transition-colors">
+                    <button className="flex items-center gap-x-2 px-4 py-2 text-black hover:text-gray-900 font-medium transition-colors">
                       <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                       </svg>
@@ -82,7 +82,7 @@ export default function LearnMateHomepage() {
                   </SignInButton>
                   
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
+                    <button className="px-6 py-2 bg-black text-white hover:bg-gray-800 rounded-lg hover:bg-gray-800 transition-colors duration-200">
                       Get Started
                     </button>
                   </SignInButton>
@@ -90,7 +90,7 @@ export default function LearnMateHomepage() {
               ) : (
                 <>
                   <Link href="/dashboard">
-                    <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
+                    <button className="px-6 py-2 bg-black text-white hover:bg-gray-800 rounded-lg hover:bg-gray-800 transition-colors duration-200">
                       Dashboard
                     </button>
                   </Link>
@@ -104,12 +104,12 @@ export default function LearnMateHomepage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-white"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             {/* Announcement Badge */}
             <Link href="https://github.com/AnujYadav-1915" target="_blank" rel="noopener noreferrer">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-8 hover:bg-blue-200 transition-colors cursor-pointer">
+              <div className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-900 rounded-full text-sm font-medium mb-8 hover:bg-blue-200 transition-colors cursor-pointer">
                 <Star className="w-4 h-4 mr-2" />
                 Open Source Career Coach
                 <svg className="flex-shrink-0 size-4 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -121,7 +121,7 @@ export default function LearnMateHomepage() {
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               Your AI-Powered
-              <span className="block text-blue-600">
+              <span className="block text-black">
                 Career Coach
               </span>
             </h1>
@@ -135,7 +135,7 @@ export default function LearnMateHomepage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               {isSignedIn ? (
                 <Link href="/dashboard">
-                  <button className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors duration-200 flex items-center gap-2">
+                  <button className="px-8 py-4 bg-black text-white hover:bg-gray-800 rounded-xl font-semibold text-lg hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2">
                     Go to Dashboard
                     <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m9 18 6-6-6-6" />
@@ -144,7 +144,7 @@ export default function LearnMateHomepage() {
                 </Link>
               ) : (
                 <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                  <button className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors duration-200 flex items-center gap-2">
+                  <button className="px-8 py-4 bg-black text-white hover:bg-gray-800 rounded-xl font-semibold text-lg hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2">
                     Start Practicing
                     <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m9 18 6-6-6-6" />
@@ -152,7 +152,7 @@ export default function LearnMateHomepage() {
                   </button>
                 </SignInButton>
               )}
-              <button className="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all duration-200">
+              <button className="px-8 py-4 border-2 border-gray-300 text-black rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200">
                 Learn More
               </button>
             </div>
@@ -177,11 +177,11 @@ export default function LearnMateHomepage() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={`${feature.color} rounded-2xl p-8 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-blue-100 relative overflow-hidden ${!isSignedIn ? 'cursor-pointer' : 'cursor-default'}`}
+                className={`${feature.color} rounded-xl p-8 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-200 relative overflow-hidden ${!isSignedIn ? 'cursor-pointer' : 'cursor-default'}`}
                 onClick={() => !isSignedIn && !feature.comingSoon && handleProtectedNavigation('/dashboard')}
               >
                 {feature.comingSoon && (
-                  <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute top-4 right-4 bg-black text-white hover:bg-gray-800 px-3 py-1 rounded-full text-sm font-medium">
                     Coming Soon
                   </div>
                 )}
@@ -203,7 +203,7 @@ export default function LearnMateHomepage() {
                 </p>
                 {isSignedIn && !feature.comingSoon ? (
                   <Link href="/dashboard">
-                    <span className="inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 hover:underline font-medium cursor-pointer">
+                    <span className="inline-flex items-center gap-x-1.5 text-sm text-black decoration-2 hover:underline font-medium cursor-pointer">
                       Try Now
                       <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="m9 18 6-6-6-6" />
@@ -216,7 +216,7 @@ export default function LearnMateHomepage() {
                   </span>
                 ) : (
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <span className="inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 hover:underline font-medium cursor-pointer">
+                    <span className="inline-flex items-center gap-x-1.5 text-sm text-black decoration-2 hover:underline font-medium cursor-pointer">
                       Sign In to Access
                       <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="m9 18 6-6-6-6" />
@@ -231,7 +231,7 @@ export default function LearnMateHomepage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20 bg-black">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to start practicing?
@@ -241,13 +241,13 @@ export default function LearnMateHomepage() {
           </p>
           {isSignedIn ? (
             <Link href="/dashboard">
-              <button className="px-10 py-4 bg-white text-blue-600 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <button className="px-10 py-4 bg-white text-black rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-1">
                 Go to Dashboard
               </button>
             </Link>
           ) : (
             <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-              <button className="px-10 py-4 bg-white text-blue-600 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <button className="px-10 py-4 bg-white text-black rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-1">
                 Get Started Now
               </button>
             </SignInButton>

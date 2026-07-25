@@ -165,7 +165,6 @@ function History() {
 
 export default History
 
-// "use client";
 // import React, { useEffect, useState } from 'react'
 // import Image from 'next/image';
 // import { Button } from '@/components/ui/button';
@@ -175,23 +174,15 @@ export default History
 // function History() {
 //     const [userHistory, setUserHistory] = useState<any[]>([]);
 
-//     useEffect(()=>{
-//         GetHistory();
-//     },[])
 
 //     const GetHistory = async()=>{
 //         const result = await axios.get('/api/history');
-//         console.log(result.data);
 //         // Ensure we're setting an array
 //         setUserHistory(Array.isArray(result.data) ? result.data : []);
-//     }
 
 //     const GetAgentName = (path : string) =>{
 //         const agent = aiToolsList.find(item => item.path == path)
-//         return agent
-//     }
     
-//     return (
 //         <div className='mt-5 p-5 border rounded-xl'>
 //             <h2 className='font-bold text-lg'>Previous History</h2>
 //             <p className=''>What Your Previously work on, You can find here.</p>
@@ -201,22 +192,7 @@ export default History
 //                     <Image src={'/idea.png'} alt='bulb' width={50} height={50}/>
 //                     <h2> You do not have any history</h2> 
 //                     <Button className='mt-5'>Explore AI Tools</Button>
-//                 </div>
-//                 :
-//                 <div>
-//                     {userHistory?.map((history:any,index:number) =>(
 //                         <div key = {index} className='flex gap-5'>
 //                             <Image src = {GetAgentName(history?.aiAgentType)?.icon} alt = {'image'}
-//                                 width={20}
-//                                 height={20}
-//                             />
-//                             <h2>{GetAgentName(history?.aiAgentType)?.name}</h2>
-//                         </div>
-//                     ))}
-//                 </div>
-//             }
-//         </div>
-//     )    
-// }
 
 // export default History

@@ -110,7 +110,6 @@ const InterviewPage: React.FC = () => {
         }
     }, [interviewCompleted]);
 
-    // Timer effect
     useEffect(() => {
         let interval: NodeJS.Timeout;
         if (interviewStarted && !interviewCompleted && timeRemaining > 0) {
@@ -228,7 +227,6 @@ const InterviewPage: React.FC = () => {
         }
     };
 
-    // Speech-to-text function
     const startRecording = () => {
         // Check if speech recognition is supported
         if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
@@ -398,7 +396,6 @@ const InterviewPage: React.FC = () => {
             console.log('🎤 Recording stopped');
         }
         
-        // Set states
         setIsSpeaking(false);
         setIsAISpeaking(false);
         setInterviewCompleted(true);
@@ -645,7 +642,7 @@ const InterviewPage: React.FC = () => {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-300 mx-auto"></div>
                     <p className="mt-4 text-gray-600">Starting your interview...</p>
                 </div>
             </div>
@@ -697,7 +694,6 @@ const InterviewPage: React.FC = () => {
                 {interviewData && (
                     <div className="max-w-4xl mx-auto">
                         {!showFeedback && !interviewCompleted ? (
-                            // Question Phase
                             <Card>
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-2">
@@ -894,7 +890,6 @@ const InterviewPage: React.FC = () => {
                                             </div>
                                         </div>
                                     ) : (
-                                        // Regular Response
                                         <div className="space-y-4">
                                             <label htmlFor="response" className="block text-sm font-medium">
                                                 Your Response:
@@ -985,7 +980,6 @@ const InterviewPage: React.FC = () => {
                                 </CardContent>
                             </Card>
                         ) : (
-                            // Feedback Phase
                             <Card>
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-2">
@@ -996,7 +990,7 @@ const InterviewPage: React.FC = () => {
                                 <CardContent className="space-y-6">
                                     {/* Overall Score */}
                                     <div className="text-center">
-                                        <div className="text-4xl font-bold text-blue-600 mb-2">
+                                        <div className="text-4xl font-bold text-black mb-2">
                                             {finalReport?.feedback?.overall_score || interviewData.feedback?.overall_score}/100
                                         </div>
                                         <p className="text-gray-600">Overall Performance Score</p>
@@ -1173,7 +1167,7 @@ const InterviewPage: React.FC = () => {
                 {loading && interviewStarted && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                         <div className="bg-white p-6 rounded-lg text-center">
-                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-300 mx-auto mb-4"></div>
                             <p className="text-gray-600">
                                 {showFeedback ? 'Analyzing your response...' : 'Getting next question...'}
                             </p>

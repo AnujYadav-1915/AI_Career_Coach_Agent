@@ -13,7 +13,7 @@ const handler = serve({
     AiInterviewAgentFunction
   ],
   // Add streaming configuration for cloud deployment
-  streaming: "allow",
+  streaming: true,
 });
 
 // Handle the main Inngest endpoints

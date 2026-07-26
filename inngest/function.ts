@@ -6,8 +6,7 @@ import { db } from "@/configs/db";
 import { HistoryTable } from "@/configs/schema";
 
 export const helloWorld = inngest.createFunction(
-  { id: "hello-world" },
-  { event: "test/hello.world" },
+  { id: "hello-world", triggers: [{ event: "test/hello.world" }] },
   async ({ event, step }) => {
     await step.sleep("wait-a-moment", "1s");
     return { message: `Hello ${event.data.email}!` };
@@ -227,8 +226,7 @@ GUIDELINES:
 // })
 
 export const AiCareerAgent = inngest.createFunction(
-  { id: "AiCareerAgent" },
-  { event: "AiCareerAgent" },
+  { id: "AiCareerAgent", triggers: [{ event: "AiCareerAgent" }] },
   async ({ event, step }) => {
     const { userInput, conversationHistory } = event.data;
 
@@ -289,8 +287,7 @@ export const AiCareerAgent = inngest.createFunction(
 );
 
 export const AiInterviewAgentFunction = inngest.createFunction(
-  { id: "AiInterviewAgent" },
-  { event: "AiInterviewAgent" },
+  { id: "AiInterviewAgent", triggers: [{ event: "AiInterviewAgent" }] },
   async ({ event, step }) => {
     const { interviewId, userInput, domain, userEmail, interviewType, isFeedback } = event.data;
 
@@ -443,8 +440,7 @@ function getImageKitClient() {
 }
 
 export const AiResumeAgent = inngest.createFunction(
-  { id: 'AiResumeAgent' },
-  { event: 'AiResumeAgent' },
+  { id: 'AiResumeAgent', triggers: [{ event: 'AiResumeAgent' }] },
   async ({ event, step }) => {
     const { recordId, base64ResumeFile, pdfText, aiAgentType,userEmail } = event.data;
     const imagekit = getImageKitClient();
@@ -502,8 +498,8 @@ export const AIRoadmapAgent = inngest.createFunction(
   { 
     id: 'AiRoadMapAgent',
     name: 'AI Roadmap Generator',
+    triggers: [{ event: 'AiRoadMapAgent' }]
   },
-  { event: 'AiRoadMapAgent' },
   async ({ event, step }) => {
     console.log("🚀 AIRoadmapAgent started with event:", JSON.stringify(event, null, 2));
     

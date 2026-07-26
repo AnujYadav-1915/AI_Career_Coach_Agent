@@ -177,7 +177,7 @@ export default function LearnMateHomepage() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="${feature.color} rounded-xl p-8 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-200 relative overflow-hidden ${!isSignedIn ? 'cursor-pointer' : 'cursor-default'}"
+                className={`${feature.color} rounded-xl p-8 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-200 relative overflow-hidden ${!isSignedIn ? 'cursor-pointer' : 'cursor-default'}`}
                 onClick={() => !isSignedIn && !feature.comingSoon && handleProtectedNavigation('/dashboard')}
               >
                 {feature.comingSoon && (

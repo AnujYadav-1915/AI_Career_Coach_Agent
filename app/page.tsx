@@ -5,10 +5,13 @@ import { SignInButton, UserButton, useUser } from "@/lib/clerk-client";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTheme } from "@/app/_components/ThemeContext";
 
 export default function LearnMateHomepage() {
   const { user, isSignedIn } = useUser();
   const router = useRouter();
+  const { getThemeClasses } = useTheme();
+  const classes = getThemeClasses();
 
   // Handle protected route navigation
   const handleProtectedNavigation = (route: string) => {
@@ -56,14 +59,14 @@ export default function LearnMateHomepage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen ${classes.bodyBg}`}>
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+      <header className={`${classes.headerBg} sticky top-0 z-50`}>
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
               <Image src={'/logo.svg'} alt="logo" width={40} height={40} />
-              <span className="text-2xl font-bold text-slate-900">
+              <span className={`text-2xl font-bold ${classes.textPrimary}`}>
                 LearnMate
               </span>
             </div>
@@ -73,7 +76,7 @@ export default function LearnMateHomepage() {
               {!isSignedIn ? (
                 <>
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <button className="flex items-center gap-x-2 px-4 py-2 text-black hover:text-gray-900 font-medium transition-colors">
+                    <button className={`flex items-center gap-x-2 px-4 py-2 text-black hover:${classes.textPrimary} font-medium transition-colors`}>
                       <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                       </svg>
@@ -109,7 +112,7 @@ export default function LearnMateHomepage() {
           <div className="text-center">
             {/* Announcement Badge */}
             <Link href="https://github.com/AnujYadav-1915" target="_blank" rel="noopener noreferrer">
-              <div className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-900 rounded-full text-sm font-medium mb-8 hover:bg-blue-200 transition-colors cursor-pointer">
+              <div className={`inline-flex items-center px-4 py-2 bg-gray-100 ${classes.textPrimary} rounded-full text-sm font-medium mb-8 hover:bg-blue-200 transition-colors cursor-pointer`}>
                 <Star className="w-4 h-4 mr-2" />
                 Open Source Career Coach
                 <svg className="flex-shrink-0 size-4 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -119,7 +122,7 @@ export default function LearnMateHomepage() {
             </Link>
 
             {/* Main Heading */}
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className={`text-5xl md:text-7xl font-bold ${classes.textPrimary} mb-6 leading-tight`}>
               Your AI-Powered
               <span className="block text-black">
                 Career Coach
@@ -127,7 +130,7 @@ export default function LearnMateHomepage() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className={`text-xl md:text-2xl ${classes.textSecondary} mb-12 max-w-4xl mx-auto leading-relaxed`}>
               Practice interviews and get instant resume feedback with your personal AI career coach.
             </p>
 
@@ -152,7 +155,7 @@ export default function LearnMateHomepage() {
                   </button>
                 </SignInButton>
               )}
-              <button className="px-8 py-4 border-2 border-gray-300 text-black rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200">
+              <button className={`px-8 py-4 text-lg border-2 ${classes.buttonSecondary} transition-all duration-200`}>
                 Learn More
               </button>
             </div>
@@ -164,10 +167,10 @@ export default function LearnMateHomepage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold ${classes.textPrimary} mb-6`}>
               Four Powerful AI Agents
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className={`text-xl ${classes.textSecondary} max-w-3xl mx-auto`}>
               Each agent is designed to tackle specific aspects of your career development, 
               providing personalized insights and actionable recommendations.
             </p>
@@ -194,7 +197,7 @@ export default function LearnMateHomepage() {
                   <div className="p-3 bg-white rounded-xl shadow-sm">
                     {feature.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 ml-4">
+                  <h3 className={`text-2xl font-bold ${classes.textPrimary} ml-4`}>
                     {feature.title}
                   </h3>
                 </div>
@@ -233,21 +236,21 @@ export default function LearnMateHomepage() {
       {/* CTA Section */}
       <section className="py-20 bg-black">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${classes.textPrimary}`}>
             Ready to start practicing?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className={`text-xl mb-8 leading-relaxed ${classes.textSecondary}`}>
             Improve your interview skills and resume with instant AI feedback.
           </p>
           {isSignedIn ? (
             <Link href="/dashboard">
-              <button className="px-10 py-4 bg-white text-black rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+              <button className={`px-10 py-4 text-lg font-semibold ${classes.buttonPrimary}`}>
                 Go to Dashboard
               </button>
             </Link>
           ) : (
             <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-              <button className="px-10 py-4 bg-white text-black rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+              <button className={`px-10 py-4 text-lg font-semibold ${classes.buttonPrimary}`}>
                 Get Started Now
               </button>
             </SignInButton>

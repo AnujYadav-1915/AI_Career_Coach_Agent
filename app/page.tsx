@@ -29,25 +29,25 @@ export default function LearnMateHomepage() {
 
   const features = [
     {
-      icon: <MessageCircle className="w-8 h-8 text-black" />,
+      icon: <MessageCircle className="w-8 h-8 text-slate-900" />,
       title: "Q&A Chatbot",
       description: "Get instant answers to your career questions with our intelligent AI assistant",
       color: "bg-gray-50 hover:bg-gray-100 border border-gray-200"
     },
     {
-      icon: <FileText className="w-8 h-8 text-black" />,
+      icon: <FileText className="w-8 h-8 text-slate-900" />,
       title: "AI Resume Analyzer",
       description: "Detailed analysis with score and personalized improvement recommendations",
       color: "bg-gray-50 hover:bg-gray-100 border border-gray-200"
     },
     {
-      icon: <Map className="w-8 h-8 text-black" />,
+      icon: <Map className="w-8 h-8 text-slate-900" />,
       title: "Roadmap Generator",
       description: "Create personalized learning paths tailored to your career goals",
       color: "bg-gray-50 hover:bg-gray-100 border border-gray-200"
     },
     {
-      icon: <Users className="w-8 h-8 text-black" />,
+      icon: <Users className="w-8 h-8 text-slate-900" />,
       title: "Mock Interview Prep",
       description: "Practice with AI-powered interviews to boost your confidence",
       color: "bg-gray-50 hover:bg-gray-100 border border-gray-200",
@@ -73,7 +73,7 @@ export default function LearnMateHomepage() {
               {!isSignedIn ? (
                 <>
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <button className="flex items-center gap-x-2 px-4 py-2 text-black hover:text-slate-900 font-medium transition-colors">
+                    <button className="flex items-center gap-x-2 px-4 py-2 text-slate-900 hover:text-slate-900 font-medium transition-colors">
                       <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                       </svg>
@@ -82,7 +82,7 @@ export default function LearnMateHomepage() {
                   </SignInButton>
                   
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <button className="px-6 py-2 bg-black text-white hover:bg-gray-800 rounded-lg hover:bg-gray-800 transition-colors duration-200">
+                    <button className="px-6 py-2 bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg hover:bg-indigo-700 transition-colors duration-200">
                       Get Started
                     </button>
                   </SignInButton>
@@ -90,7 +90,7 @@ export default function LearnMateHomepage() {
               ) : (
                 <>
                   <Link href="/dashboard">
-                    <button className="px-6 py-2 bg-black text-white hover:bg-gray-800 rounded-lg hover:bg-gray-800 transition-colors duration-200">
+                    <button className="px-6 py-2 bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg hover:bg-indigo-700 transition-colors duration-200">
                       Dashboard
                     </button>
                   </Link>
@@ -103,8 +103,8 @@ export default function LearnMateHomepage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-white"></div>
+      <section className="relative overflow-hidden bg-white">
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             {/* Announcement Badge */}
@@ -121,7 +121,7 @@ export default function LearnMateHomepage() {
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight">
               Your AI-Powered
-              <span className="block text-black">
+              <span className="block text-slate-900">
                 Career Coach
               </span>
             </h1>
@@ -135,7 +135,7 @@ export default function LearnMateHomepage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               {isSignedIn ? (
                 <Link href="/dashboard">
-                  <button className="px-8 py-4 bg-black text-white hover:bg-gray-800 rounded-xl font-semibold text-lg hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2">
+                  <button className="px-8 py-4 bg-indigo-600 text-white hover:bg-indigo-700 rounded-xl font-semibold text-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center gap-2">
                     Go to Dashboard
                     <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m9 18 6-6-6-6" />
@@ -144,7 +144,7 @@ export default function LearnMateHomepage() {
                 </Link>
               ) : (
                 <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                  <button className="px-8 py-4 bg-black text-white hover:bg-gray-800 rounded-xl font-semibold text-lg hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2">
+                  <button className="px-8 py-4 bg-indigo-600 text-white hover:bg-indigo-700 rounded-xl font-semibold text-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center gap-2">
                     Start Practicing
                     <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m9 18 6-6-6-6" />
@@ -181,7 +181,7 @@ export default function LearnMateHomepage() {
                 onClick={() => !isSignedIn && !feature.comingSoon && handleProtectedNavigation('/dashboard')}
               >
                 {feature.comingSoon && (
-                  <div className="absolute top-4 right-4 bg-black text-white hover:bg-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute top-4 right-4 bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-1 rounded-full text-sm font-medium">
                     Coming Soon
                   </div>
                 )}
@@ -203,7 +203,7 @@ export default function LearnMateHomepage() {
                 </p>
                 {isSignedIn && !feature.comingSoon ? (
                   <Link href="/dashboard">
-                    <span className="inline-flex items-center gap-x-1.5 text-sm text-black decoration-2 hover:underline font-medium cursor-pointer">
+                    <span className="inline-flex items-center gap-x-1.5 text-sm text-slate-900 decoration-2 hover:underline font-medium cursor-pointer">
                       Try Now
                       <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="m9 18 6-6-6-6" />
@@ -216,7 +216,7 @@ export default function LearnMateHomepage() {
                   </span>
                 ) : (
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <span className="inline-flex items-center gap-x-1.5 text-sm text-black decoration-2 hover:underline font-medium cursor-pointer">
+                    <span className="inline-flex items-center gap-x-1.5 text-sm text-slate-900 decoration-2 hover:underline font-medium cursor-pointer">
                       Sign In to Access
                       <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="m9 18 6-6-6-6" />
@@ -231,7 +231,7 @@ export default function LearnMateHomepage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
             Ready to start practicing?

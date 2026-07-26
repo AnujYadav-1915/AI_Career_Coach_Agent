@@ -25,7 +25,7 @@ function AiResumeAnalyzer() {
   return (
     <div className='grid lg:grid-cols-5 grid-cols-1 gap-4 h-screen p-4 bg-gray-50'>
       {/* Report Section */}
-      <div className='col-span-2 overflow-y-auto border-r border-gray-300 pr-4'>
+      <div className='col-span-2 overflow-y-auto border-r border-slate-200 pr-4'>
         <h2 className='font-bold text-xl mb-4'>AI Resume Report</h2>
         <Report aiReport={aiReport} />
       </div>

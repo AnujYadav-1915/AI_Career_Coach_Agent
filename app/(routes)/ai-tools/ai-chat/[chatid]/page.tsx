@@ -49,8 +49,8 @@
 //                     {messageList?.map((message, index) => (
 //                         <div key = {index} className={`flex mb-2 ${message.role == 'user' ? 'justify-end' : 'justify-start'}`} >
 //                             <div className={`p-3 rounded-lg gap-2 ${message.role =='user'?
-//                             'bg-gray-200 text-black rounded-lg':"bg-gray-50 text-black"}`}>
-//                             {loading && messageList.length-1 == index && <div className='flex justify-start p-3 rounded-lg gap-2 bg-gray-200 text-black mb-2'>
+//                             'bg-gray-200 text-slate-900 rounded-lg':"bg-gray-50 text-slate-900"}`}>
+//                             {loading && messageList.length-1 == index && <div className='flex justify-start p-3 rounded-lg gap-2 bg-gray-200 text-slate-900 mb-2'>
 
 //                 <div className='flex justify-between items-center gap-6'>
 //                     {/* {Message input} */}
@@ -215,7 +215,7 @@ function AiChat() {
                                 <div className={`p-3 rounded-lg max-w-[80%] ${
                                     message.role == 'user' ? 
                                     'bg-blue-500 text-white' : 
-                                    'bg-gray-100 text-black'
+                                    'bg-gray-100 text-slate-900'
                                 }`}>
                                     <ReactMarkdown>
                                         {message.content}
@@ -228,7 +228,7 @@ function AiChat() {
                     
                     {loading && (
                         <div className='flex justify-start mb-2'>
-                            <div className='p-3 rounded-lg bg-gray-100 text-black flex items-center gap-2'>
+                            <div className='p-3 rounded-lg bg-gray-100 text-slate-900 flex items-center gap-2'>
                                 <LoaderCircle className='animate-spin w-4 h-4' />
                                 <span>Thinking...</span>
                             </div>

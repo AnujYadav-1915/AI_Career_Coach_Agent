@@ -3,8 +3,6 @@ import { AuthContext } from '@/context/AuthContext';
 import { useUser } from '@/lib/clerk-client';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { ThemeProvider } from '@/app/_components/ThemeContext';
-import { ThemeSwitcher } from '@/app/_components/ThemeSwitcher';
 
 function Provider({
     children,
@@ -22,12 +20,12 @@ function Provider({
     }
 
     return (
-        <ThemeProvider>
+        
             <div>
                 {children}
-                <ThemeSwitcher />
+                
             </div>
-        </ThemeProvider>
+        
     )
 }
 

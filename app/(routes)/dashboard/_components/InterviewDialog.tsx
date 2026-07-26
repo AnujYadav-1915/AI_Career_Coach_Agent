@@ -96,7 +96,7 @@ const InterviewDialog: React.FC<InterviewDialogProps> = ({ openDialog, setOpenDi
                                 className={`px-4 py-3 rounded-lg border text-sm font-medium transition-colors ${
                                     interviewType === 'technical'
                                         ? 'bg-blue-500 text-white border-blue-500'
-                                        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                                        : 'bg-white text-gray-700 border-slate-200 hover:bg-gray-50'
                                 }`}
                             >
                                 <div className="text-center">
@@ -110,7 +110,7 @@ const InterviewDialog: React.FC<InterviewDialogProps> = ({ openDialog, setOpenDi
                                 className={`px-4 py-3 rounded-lg border text-sm font-medium transition-colors ${
                                     interviewType === 'culture-fit'
                                         ? 'bg-green-500 text-white border-green-500'
-                                        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                                        : 'bg-white text-gray-700 border-slate-200 hover:bg-gray-50'
                                 }`}
                             >
                                 <div className="text-center">
@@ -124,7 +124,7 @@ const InterviewDialog: React.FC<InterviewDialogProps> = ({ openDialog, setOpenDi
                                 className={`px-4 py-3 rounded-lg border text-sm font-medium transition-colors ${
                                     interviewType === 'dsa'
                                         ? 'bg-purple-500 text-white border-purple-500'
-                                        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                                        : 'bg-white text-gray-700 border-slate-200 hover:bg-gray-50'
                                 }`}
                             >
                                 <div className="text-center">
@@ -148,7 +148,7 @@ const InterviewDialog: React.FC<InterviewDialogProps> = ({ openDialog, setOpenDi
                                     className={`px-3 py-2 rounded-lg border text-sm font-medium transition-colors whitespace-nowrap ${
                                         interviewDuration === minutes
                                             ? 'bg-blue-500 text-white border-blue-500'
-                                            : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                                            : 'bg-white text-gray-700 border-slate-200 hover:bg-gray-50'
                                     }`}
                                 >
                                     {minutes} min

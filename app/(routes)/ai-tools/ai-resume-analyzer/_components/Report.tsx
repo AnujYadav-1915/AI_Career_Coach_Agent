@@ -9,7 +9,7 @@
 //           Re-analyze <i className="fa-solid fa-sync ml-2"></i>
 
 //       {/* Resume Score */}
-//       <div className="bg-gradient-to-r from-[#BE575F] via-[#A338E3] to-[#AC76D6] rounded-lg shadow-sm p-6 mb-6 border border-gray-200 transform hover:scale-[1.01] transition-transform duration-300 ease-in-out">
+//       <div className="bg-gradient-to-r from-[#BE575F] via-[#A338E3] to-[#AC76D6] rounded-lg shadow-sm p-6 mb-6 border border-slate-200 transform hover:scale-[1.01] transition-transform duration-300 ease-in-out">
 //         <h3 className="text-xl font-bold text-white mb-4 flex items-center">
 //           <i className="fas fa-star text-yellow-500 mr-2"></i> Overall Score
 //         <div className="flex items-center justify-between mb-4">
@@ -56,24 +56,24 @@
 //           <div className="absolute inset-x-0 bottom-0 h-1 bg-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
 //       {/* Tips for Improvement */}
-//       <div className="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+//       <div className="bg-white rounded-lg shadow-sm p-6 mb-6 border border-slate-200">
 //         <h3 className="text-xl font-bold text-gray-700 mb-4 flex items-center">
 //           <i className="fas fa-lightbulb text-orange-400 mr-2"></i> Tips for Improvement
 //         <ol className="list-none space-y-4">
 //           <li className="flex items-start">
-//             <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-black flex items-center justify-center font-bold mr-3">
+//             <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-slate-900 flex items-center justify-center font-bold mr-3">
 //               <i className="fas fa-check"></i>
 //               <p className="font-semibold text-gray-800">Quantify Achievements:</p>
 //               <p className="text-gray-600 text-sm">
 //                 Add more numbers and metrics to your experience section to show impact.
 //           <li className="flex items-start">
-//             <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-black flex items-center justify-center font-bold mr-3">
+//             <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-slate-900 flex items-center justify-center font-bold mr-3">
 //               <i className="fas fa-check"></i>
 //               <p className="font-semibold text-gray-800">Keywords Optimization:</p>
 //               <p className="text-gray-600 text-sm">
 //                 Integrate more industry-specific keywords relevant to your target roles.
 //           <li className="flex items-start">
-//             <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-black flex items-center justify-center font-bold mr-3">
+//             <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-slate-900 flex items-center justify-center font-bold mr-3">
 //               <i className="fas fa-check"></i>
 //               <p className="font-semibold text-gray-800">Action Verbs:</p>
 //               <p className="text-gray-600 text-sm">
@@ -97,11 +97,11 @@
 //             <li>Missing a professional summary/objective.</li>
 
 //       {/* Call to Action */}
-//       <div className="bg-black text-white rounded-lg shadow-sm p-6 mb-6 text-center gradient-button-bg">
+//       <div className="bg-indigo-600 text-white rounded-lg shadow-sm p-6 mb-6 text-center gradient-button-bg">
 //         <h3 className="text-2xl font-bold mb-3">Ready to refine your resume? 💪</h3>
 //         <p className="text-base mb-4">Make your application stand out with our premium insights and features.</p>
-//           className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
-//           Upgrade to Premium <i className="fas fa-arrow-right ml-2 text-black"></i>
+//           className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-slate-900 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+//           Upgrade to Premium <i className="fas fa-arrow-right ml-2 text-slate-900"></i>
 
 // export default Report;
 
@@ -194,7 +194,7 @@ function Report({ aiReport }: any) {
       </div>
 
       {/* Tips for Improvement */}
-      <div className="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+      <div className="bg-white rounded-lg shadow-sm p-6 mb-6 border border-slate-200">
         <h3 className="text-xl font-bold text-gray-700 mb-4 flex items-center">
           <i className="fas fa-lightbulb text-orange-400 mr-2"></i> Tips for Improvement
         </h3>

@@ -30,7 +30,7 @@
 //                     <DialogTitle>Upload resume PDF file</DialogTitle>
 //                             <label htmlFor='resumeUpload' className='flex items-center flex-col justify-center p-7 border border-dashed rounded-xl hover:bg-slate-100 cursor-pointer'>
 //                                 <File className='h-10 w-10' />
-//                                     <h2 className='mt-3 text-black'>{file?.name}</h2>:
+//                                     <h2 className='mt-3 text-slate-900'>{file?.name}</h2>:
 //                                 <h2 className='mt-3'>Click here to upload PDF file</h2>}
 //                             <input type='file' id='resumeUpload' className='hidden' accept='.pdf'
 
@@ -150,7 +150,7 @@ function ResumeUploadDialog({ openResumeUpload, setOpenResumeDialog }: any) {
                                 <File className='h-10 w-10' />
                                 {file ? (
                                     <div className='mt-3 text-center'>
-                                        <h2 className='text-black font-medium'>{file.name}</h2>
+                                        <h2 className='text-slate-900 font-medium'>{file.name}</h2>
                                         <p className='text-sm text-gray-500 mt-1'>
                                             {(file.size / 1024 / 1024).toFixed(2)} MB
                                         </p>

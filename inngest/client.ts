@@ -7,4 +7,5 @@ export const inngest = new Inngest({
   eventKey: process.env.INNGEST_EVENT_KEY,
   // Add signing key for cloud deployment
   signingKey: process.env.INNGEST_SIGNING_KEY,
+  env: "production",
 });

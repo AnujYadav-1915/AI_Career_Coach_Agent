@@ -1,6 +1,6 @@
 "use client"
-import React from 'react';
-import { MessageCircle, FileText, Map, Users, Brain, Target, TrendingUp, Star } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { MessageCircle, FileText, Map, Users, Brain, Star, ArrowRight } from 'lucide-react';
 import { SignInButton, UserButton, useUser } from "@/lib/clerk-client";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,80 +9,72 @@ import { useRouter } from "next/navigation";
 export default function LearnMateHomepage() {
   const { user, isSignedIn } = useUser();
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
 
-  // Handle protected route navigation
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const handleProtectedNavigation = (route: string) => {
-    if (!isSignedIn) {
-      // Show sign-in modal or redirect to sign-in
-      return;
-    }
+    if (!isSignedIn) return;
     router.push(route);
-  };
-
-  // Handle Get Started button click
-  const handleGetStarted = () => {
-    if (isSignedIn) {
-      router.push('/dashboard');
-    }
-    // If not signed in, the SignInButton will handle the modal
   };
 
   const features = [
     {
-      icon: <MessageCircle className="w-8 h-8 text-slate-900" />,
+      icon: <MessageCircle className="w-6 h-6 text-[#635BFF]" />,
       title: "Q&A Chatbot",
-      description: "Get instant answers to your career questions with our intelligent AI assistant",
-      color: "bg-gray-50 hover:bg-gray-100 border border-gray-200"
+      description: "Get instant answers to your career questions with our intelligent AI assistant.",
     },
     {
-      icon: <FileText className="w-8 h-8 text-slate-900" />,
+      icon: <FileText className="w-6 h-6 text-[#635BFF]" />,
       title: "AI Resume Analyzer",
-      description: "Detailed analysis with score and personalized improvement recommendations",
-      color: "bg-gray-50 hover:bg-gray-100 border border-gray-200"
+      description: "Detailed analysis with score and personalized improvement recommendations.",
     },
     {
-      icon: <Map className="w-8 h-8 text-slate-900" />,
+      icon: <Map className="w-6 h-6 text-[#635BFF]" />,
       title: "Roadmap Generator",
-      description: "Create personalized learning paths tailored to your career goals",
-      color: "bg-gray-50 hover:bg-gray-100 border border-gray-200"
+      description: "Create personalized learning paths tailored to your career goals.",
     },
     {
-      icon: <Users className="w-8 h-8 text-slate-900" />,
+      icon: <Users className="w-6 h-6 text-[#635BFF]" />,
       title: "Mock Interview Prep",
-      description: "Practice with AI-powered interviews to boost your confidence",
-      color: "bg-gray-50 hover:bg-gray-100 border border-gray-200",
+      description: "Practice with AI-powered interviews to boost your confidence.",
       comingSoon: true
     }
   ];
 
+  if (!mounted) return null;
+
   return (
-    <div className={"min-h-screen bg-white"}>
+    <div className="min-h-screen bg-[#F6F9FC] font-sans selection:bg-[#635BFF]/20 text-slate-900 relative overflow-hidden">
+      {/* Stripe-like background diagonal elements */}
+      <div className="absolute top-[-20%] left-[-10%] w-[120%] h-[120%] bg-white transform -skew-y-6 z-0 border-b border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.02)]"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-[#635BFF]/5 to-transparent rounded-full blur-3xl z-0"></div>
+
       {/* Header */}
-      <header className={"bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50"}>
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
+      <header className="relative z-50 pt-6 pb-4">
+        <nav className="max-w-7xl mx-auto px-6">
+          <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
-              <Image src={'/logo.svg'} alt="logo" width={40} height={40} />
-              <span className="text-2xl font-bold text-slate-900">
+              <div className="w-10 h-10 bg-[#635BFF] rounded-xl flex items-center justify-center shadow-lg shadow-[#635BFF]/20">
+                <Brain className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-2xl font-black tracking-tight text-slate-900">
                 LearnMate
               </span>
             </div>
             
-            <div className="flex items-center space-x-4">
-              {/* Clerk Authentication */}
+            <div className="flex items-center space-x-6">
               {!isSignedIn ? (
                 <>
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <button className="flex items-center gap-x-2 px-4 py-2 text-slate-900 hover:text-slate-900 font-medium transition-colors">
-                      <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                      </svg>
+                    <button className="text-slate-600 hover:text-slate-900 font-semibold transition-colors">
                       Sign In
                     </button>
                   </SignInButton>
-                  
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <button className="px-6 py-2 bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+                    <button className="px-5 py-2.5 bg-slate-900 text-white hover:bg-slate-800 rounded-full font-medium transition-all shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] transform hover:-translate-y-0.5">
                       Get Started
                     </button>
                   </SignInButton>
@@ -90,7 +82,7 @@ export default function LearnMateHomepage() {
               ) : (
                 <>
                   <Link href="/dashboard">
-                    <button className="px-6 py-2 bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+                    <button className="px-5 py-2.5 bg-slate-900 text-white hover:bg-slate-800 rounded-full font-medium transition-all shadow-sm hover:shadow-md transform hover:-translate-y-0.5">
                       Dashboard
                     </button>
                   </Link>
@@ -103,73 +95,56 @@ export default function LearnMateHomepage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white">
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
-            {/* Announcement Badge */}
-            <Link href="https://github.com/AnujYadav-1915" target="_blank" rel="noopener noreferrer">
-              <div className="inline-flex items-center px-4 py-2 bg-gray-100 text-slate-900 rounded-full text-sm font-medium mb-8 hover:bg-blue-200 transition-colors cursor-pointer">
-                <Star className="w-4 h-4 mr-2" />
-                Open Source Career Coach
-                <svg className="flex-shrink-0 size-4 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              </div>
-            </Link>
-
-            {/* Main Heading */}
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight">
-              Your AI-Powered
-              <span className="block text-slate-900">
-                Career Coach
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-slate-500 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Practice interviews and get instant resume feedback with your personal AI career coach.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              {isSignedIn ? (
-                <Link href="/dashboard">
-                  <button className="px-8 py-4 bg-indigo-600 text-white hover:bg-indigo-700 rounded-xl font-semibold text-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center gap-2">
-                    Go to Dashboard
-                    <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="m9 18 6-6-6-6" />
-                    </svg>
-                  </button>
-                </Link>
-              ) : (
-                <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                  <button className="px-8 py-4 bg-indigo-600 text-white hover:bg-indigo-700 rounded-xl font-semibold text-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center gap-2">
-                    Start Practicing
-                    <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="m9 18 6-6-6-6" />
-                    </svg>
-                  </button>
-                </SignInButton>
-              )}
-              <button className="px-8 py-4 text-lg border-2 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-lg shadow-sm transition-all duration-200">
-                Learn More
-              </button>
+      <section className="relative z-10 pt-20 pb-32">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <Link href="https://github.com/AnujYadav-1915" target="_blank" rel="noopener noreferrer">
+            <div className="inline-flex items-center px-4 py-1.5 bg-[#635BFF]/10 text-[#635BFF] rounded-full text-sm font-bold mb-8 hover:bg-[#635BFF]/20 transition-colors cursor-pointer ring-1 ring-[#635BFF]/20">
+              <Star className="w-4 h-4 mr-2" fill="currentColor" />
+              Open Source Career Coach
+              <ArrowRight className="w-4 h-4 ml-2" />
             </div>
+          </Link>
+
+          <h1 className="text-6xl md:text-8xl font-black tracking-tight text-slate-900 mb-8 leading-[1.1]">
+            Unlock your <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#635BFF] to-[#00D4FF]">career potential</span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-slate-500 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+            Practice interviews, optimize your resume, and map out your learning path with an intelligent AI career coach by your side.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {isSignedIn ? (
+              <Link href="/dashboard">
+                <button className="px-8 py-4 bg-[#635BFF] text-white hover:bg-[#524BEE] rounded-full font-bold text-lg transition-all shadow-[0_8px_30px_rgb(99,91,255,0.3)] hover:shadow-[0_8px_40px_rgb(99,91,255,0.4)] transform hover:-translate-y-1 flex items-center gap-2">
+                  Go to Dashboard <ArrowRight className="w-5 h-5" />
+                </button>
+              </Link>
+            ) : (
+              <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
+                <button className="px-8 py-4 bg-[#635BFF] text-white hover:bg-[#524BEE] rounded-full font-bold text-lg transition-all shadow-[0_8px_30px_rgb(99,91,255,0.3)] hover:shadow-[0_8px_40px_rgb(99,91,255,0.4)] transform hover:-translate-y-1 flex items-center gap-2 group">
+                  Start Practicing <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </SignInButton>
+            )}
+            <button className="px-8 py-4 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300 rounded-full font-bold text-lg shadow-sm transition-all hover:shadow-md transform hover:-translate-y-1 flex items-center gap-2">
+              Learn More
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Four Powerful AI Agents
+      {/* Features Grid */}
+      <section className="relative z-10 py-24 bg-white">
+        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              A complete toolkit for your career
             </h2>
-            <p className="text-xl text-slate-500 max-w-3xl mx-auto">
-              Each agent is designed to tackle specific aspects of your career development, 
-              providing personalized insights and actionable recommendations.
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+              Everything you need to land your dream job, powered by state-of-the-art AI technology.
             </p>
           </div>
 
@@ -177,50 +152,41 @@ export default function LearnMateHomepage() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={`${feature.color} rounded-xl p-8 transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-200 relative overflow-hidden ${!isSignedIn ? 'cursor-pointer' : 'cursor-default'}`}
+                className={`bg-white rounded-2xl p-10 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-slate-100 relative group overflow-hidden ${!isSignedIn ? 'cursor-pointer' : 'cursor-default'} transform hover:-translate-y-1`}
                 onClick={() => !isSignedIn && !feature.comingSoon && handleProtectedNavigation('/dashboard')}
               >
                 {feature.comingSoon && (
-                  <div className="absolute top-4 right-4 bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute top-6 right-6 bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                     Coming Soon
                   </div>
                 )}
-                {!isSignedIn && !feature.comingSoon && (
-                  <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Sign In Required
-                  </div>
-                )}
-                <div className="flex items-center mb-4">
-                  <div className="p-3 bg-white rounded-xl shadow-sm">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 ml-4">
-                    {feature.title}
-                  </h3>
+                
+                <div className="w-14 h-14 bg-blue-50/50 rounded-2xl flex items-center justify-center mb-6 border border-[#635BFF]/10 group-hover:scale-110 transition-transform duration-300">
+                  {feature.icon}
                 </div>
-                <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                
+                <h3 className="text-2xl font-bold text-slate-900 mb-3 tracking-tight">
+                  {feature.title}
+                </h3>
+                
+                <p className="text-slate-500 text-lg leading-relaxed mb-8">
                   {feature.description}
                 </p>
+                
                 {isSignedIn && !feature.comingSoon ? (
                   <Link href="/dashboard">
-                    <span className="inline-flex items-center gap-x-1.5 text-sm text-slate-900 decoration-2 hover:underline font-medium cursor-pointer">
-                      Try Now
-                      <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="m9 18 6-6-6-6" />
-                      </svg>
+                    <span className="inline-flex items-center text-[#635BFF] font-semibold group-hover:text-[#524BEE] transition-colors">
+                      Try Now <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </Link>
                 ) : feature.comingSoon ? (
-                  <span className="inline-flex items-center gap-x-1.5 text-sm text-gray-400 font-medium">
-                    Coming Soon
+                  <span className="inline-flex items-center text-slate-400 font-semibold">
+                    In Development
                   </span>
                 ) : (
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <span className="inline-flex items-center gap-x-1.5 text-sm text-slate-900 decoration-2 hover:underline font-medium cursor-pointer">
-                      Sign In to Access
-                      <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="m9 18 6-6-6-6" />
-                      </svg>
+                    <span className="inline-flex items-center text-[#635BFF] font-semibold group-hover:text-[#524BEE] transition-colors">
+                      Sign In to Access <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </SignInButton>
                 )}
@@ -230,60 +196,29 @@ export default function LearnMateHomepage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-            Ready to start practicing?
-          </h2>
-          <p className="text-xl mb-8 leading-relaxed text-slate-500">
-            Improve your interview skills and resume with instant AI feedback.
-          </p>
-          {isSignedIn ? (
-            <Link href="/dashboard">
-              <button className="px-10 py-4 text-lg font-semibold bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg shadow-sm font-semibold transition-all">
-                Go to Dashboard
-              </button>
-            </Link>
-          ) : (
-            <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-              <button className="px-10 py-4 text-lg font-semibold bg-indigo-600 text-white hover:bg-indigo-700 rounded-lg shadow-sm font-semibold transition-all">
-                Get Started Now
-              </button>
-            </SignInButton>
-          )}
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <Brain className="w-5 h-5 text-white" />
+      <footer className="bg-[#0A2540] text-slate-300 py-16 relative overflow-hidden">
+        {/* Subtle background element in footer */}
+        <div className="absolute top-[-50%] right-[-10%] w-[50%] h-[200%] bg-[#635BFF]/10 transform rotate-12 blur-3xl z-0"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-center border-b border-slate-700/50 pb-12 mb-8">
+            <div className="flex items-center space-x-3 mb-6 md:mb-0">
+              <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+                <Brain className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold">LearnMate</span>
+              <span className="text-2xl font-bold text-white tracking-tight">LearnMate</span>
             </div>
-            <div className="flex flex-col items-center md:items-end gap-2">
-              <div className="flex items-center gap-4">
-                <Link href="https://github.com/AnujYadav-1915" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                  GitHub
-                </Link>
-                <Link href="https://www.linkedin.com/in/anuj-kumar-918415295/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                  LinkedIn
-                </Link>
-                <Link href="https://x.com/AnujYadav1915" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                  Twitter
-                </Link>
-                <Link href="https://anujyadav-1915.github.io/updated-portfolio-website/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                  Portfolio
-                </Link>
-              </div>
-              <div className="text-gray-400 text-sm text-center md:text-right">
-                <p>&copy; 2025 LearnMate. Built by <Link href="https://anujyadav-1915.github.io/updated-portfolio-website/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">Anuj Kumar</Link>.</p>
-              </div>
+            <div className="flex flex-wrap justify-center gap-6 font-medium text-sm">
+              <Link href="https://github.com/AnujYadav-1915" target="_blank" className="hover:text-white transition-colors">GitHub</Link>
+              <Link href="https://www.linkedin.com/in/anuj-kumar-918415295/" target="_blank" className="hover:text-white transition-colors">LinkedIn</Link>
+              <Link href="https://x.com/AnujYadav1915" target="_blank" className="hover:text-white transition-colors">Twitter</Link>
+              <Link href="https://anujyadav-1915.github.io/updated-portfolio-website/" target="_blank" className="hover:text-white transition-colors">Portfolio</Link>
             </div>
+          </div>
+          <div className="text-center md:text-left text-sm text-slate-500 font-medium flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; 2025 LearnMate. All rights reserved.</p>
+            <p className="mt-4 md:mt-0">Built with <span className="text-red-400">♥</span> by <Link href="https://anujyadav-1915.github.io/updated-portfolio-website/" target="_blank" className="text-slate-300 hover:text-white transition-colors">Anuj Kumar</Link></p>
           </div>
         </div>
       </footer>

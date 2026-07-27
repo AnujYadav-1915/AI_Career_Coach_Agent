@@ -74,7 +74,7 @@ export async function GET(req:any) {
         
         if(recordId){
             const result = await db.select().from(HistoryTable).where(eq(HistoryTable.recordId, recordId));
-            return NextResponse.json(result[0])
+            return NextResponse.json(result[0] || { content: [] })
         }
         else{
             const result = await db.select().from(HistoryTable)

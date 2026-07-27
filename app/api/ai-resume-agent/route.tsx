@@ -1,3 +1,4 @@
+export const maxDuration = 60;
 // import { NextRequest, NextResponse } from "next/server";
 // import { WebPDFLoader } from "@langchain/community/document_loaders/web/pdf";
 // import { inngest } from "@/inngest/client";

@@ -1,3 +1,4 @@
+export const maxDuration = 60;
 import { inngest } from "@/inngest/client";
 import axios from "axios";
 import { NextResponse } from "next/server";

@@ -1,3 +1,4 @@
+export const maxDuration = 60;
 
 // -------------------Correct hangling with this just routing issur
 // import { inngest } from "@/inngest/client";
